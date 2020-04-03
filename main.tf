@@ -16,7 +16,7 @@ resource "aws_instance" "default" {
 }
 
 resource "aws_security_group" "default" {
-  name = "terraform-default-sg"
+  name = "terraform-sg"
 
   ingress {
     from_port   = 80
