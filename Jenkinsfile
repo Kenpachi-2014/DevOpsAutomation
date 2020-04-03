@@ -16,7 +16,7 @@ stage('init') {
         accessKeyVariable: 'AWS_ACCESS_KEY_ID',
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
       ]]) {
-          cmd 'C:\terraform.exe init'
+          bat 'C:\terraform.exe init'
       }
     }
   }
@@ -29,7 +29,7 @@ stage('init') {
         accessKeyVariable: 'AWS_ACCESS_KEY_ID',
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
       ]]) {
-          cmd 'C:\terraform.exe plan'
+          bat 'C:\terraform.exe plan'
       }
     }
   }
@@ -45,7 +45,7 @@ stage('init') {
           accessKeyVariable: 'AWS_ACCESS_KEY_ID',
           secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
-            cmd 'C:\terraform.exe apply -auto-approve'
+            bat 'C:\terraform.exe apply -auto-approve'
         }
       }
     }
@@ -58,7 +58,7 @@ stage('init') {
           accessKeyVariable: 'AWS_ACCESS_KEY_ID',
           secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
-            cmd 'C:\terraform.exe show'
+            bat 'C:\terraform.exe show'
         }
       }
     }
