@@ -8,7 +8,7 @@ try {
     }
   }
 
-  stage('init') {
+stage('init') {
     node {
       withCredentials([[
         $class: 'AmazonWebServicesCredentialsBinding',
@@ -17,13 +17,13 @@ try {
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
       ]]) {
         ansiColor('xterm') {
-          cmd 'C:\terraform.exe init'
+          sh 'terraform init'
         }
       }
     }
   }
 
-  stage('plan') {
+ stage('plan') {
     node {
       withCredentials([[
         $class: 'AmazonWebServicesCredentialsBinding',
@@ -32,7 +32,7 @@ try {
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
       ]]) {
         ansiColor('xterm') {
-          cmd 'C:\terraform.exe plan'
+          sh 'terraform plan'
         }
       }
     }
@@ -40,6 +40,7 @@ try {
 
   if (env.BRANCH_NAME == 'master') {
 
+    // Run terraform apply
     stage('apply') {
       node {
         withCredentials([[
@@ -49,7 +50,7 @@ try {
           secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
           ansiColor('xterm') {
-            cmd 'C:\terraform.exe -auto-approve'
+            sh 'terraform apply -auto-approve'
           }
         }
       }
@@ -64,7 +65,7 @@ try {
           secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
           ansiColor('xterm') {
-            cmd 'C:\terraform.exe show'
+            sh 'terraform show'
           }
         }
       }
