@@ -3,6 +3,7 @@ provider "aws" {
   region = "us-east-1"
 }
 
+//EC2
 resource "aws_instance" "default" {
   ami                    = var.ami
   count                  = var.instance_count
