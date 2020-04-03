@@ -16,9 +16,7 @@ stage('init') {
         accessKeyVariable: 'AWS_ACCESS_KEY_ID',
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
       ]]) {
-        ansiColor('xterm') {
-          sh 'terraform init'
-        }
+          cmd 'C:\terraform.exe init'
       }
     }
   }
@@ -31,9 +29,7 @@ stage('init') {
         accessKeyVariable: 'AWS_ACCESS_KEY_ID',
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
       ]]) {
-        ansiColor('xterm') {
-          sh 'terraform plan'
-        }
+          cmd 'C:\terraform.exe plan'
       }
     }
   }
@@ -49,9 +45,7 @@ stage('init') {
           accessKeyVariable: 'AWS_ACCESS_KEY_ID',
           secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
-          ansiColor('xterm') {
-            sh 'terraform apply -auto-approve'
-          }
+            cmd 'C:\terraform.exe apply -auto-approve'
         }
       }
     }
@@ -64,9 +58,7 @@ stage('init') {
           accessKeyVariable: 'AWS_ACCESS_KEY_ID',
           secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
-          ansiColor('xterm') {
-            sh 'terraform show'
-          }
+            cmd 'C:\terraform.exe show'
         }
       }
     }
