@@ -17,7 +17,7 @@ resource "aws_instance" "default" {
   }
 }
 
-//Ec2 SG
+//Ec2 Security-Group
 resource "aws_security_group" "default" {
   name = "terraform-sg"
 
